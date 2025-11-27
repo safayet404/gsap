@@ -1,29 +1,60 @@
-gsap.to(".box1", {
-  x: 1200,
-  delay: 1,
-  duration: 2,
-  y: 300,
-  rotation: 380,
-  backgroundColor: "#ff2421",
-  borderRadius: "50%",
-});
+// gsap.to(".box1", {
+//   x: 1500,
+//   rotate: 360,
+//   duration: 1.5,
+//   delay: 1,
+//   repeat: -1,
+//   yoyo: true,
+// });
 
-gsap.to(".box2", {
-  x: 1200,
-  delay: 1,
-  duration: 2,
+// gsap.to(".box2", {
+//   x: 1500,
+//   rotate: 360,
+//   backgroundColor: "yellow",
+//   duration: 1.5,
+//   delay: 2.5,
+// });
 
-  rotation: 380,
-  width: 1,
-  height: 1,
-  repeat: -1,
-  yoyo: true,
-});
+// tl.to(".box1", {
+//   x: 1500,
+//   rotate: 360,
+//   duration: 2,
+//   delay: 1,
+// });
 
-gsap.from("h1", {
+// tl.to(".box2", {
+//   x: 1500,
+//   duration: 2,
+//   delay: 1.5,
+// });
+
+// tl.to(".box3", {
+//   x: 1500,
+//   duration: 2,
+//   rotate: -360,
+//   delay: 1,
+// });
+
+var tl = gsap.timeline();
+
+tl.from("h2", {
+  y: -30,
   opacity: 0,
-  duration: 1,
-  y: 30,
   delay: 1,
-  stagger: -0.5,
+  duration: 0.5,
+});
+
+tl.from("h4", {
+  y: -30,
+  opacity: 0,
+  delay: 1,
+  duration: 0.5,
+  stagger: 0.5,
+});
+
+tl.from("h1", {
+  y: 20,
+  opacity: 0,
+  duration: 0.5,
+  scale: 0.2,
 });

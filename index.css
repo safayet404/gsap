@@ -9,3 +9,36 @@
   width: 200px;
   background-color: blue;
 }
+.box3 {
+  height: 200px;
+  width: 200px;
+  background-color: purple;
+}
+
+.box4 {
+  height: 200px;
+  width: 200px;
+  background-color: maroon;
+}
+
+.nav {
+  background-color: black;
+  padding: 20px;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.part2 {
+  display: flex;
+  gap: 50px;
+}
+
+.test {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+}
