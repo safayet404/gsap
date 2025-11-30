@@ -1,18 +1,18 @@
 var main = document.querySelector("#main");
 var cursor = document.querySelector("#cursor");
-var rippleLayer = document.querySelector("#ripple-layer");
+var smokeLayer = document.querySelector("#smoke-layer");
 
 main.addEventListener("mousemove", function (e) {
-  // move main cursor
+  // move cursor
   gsap.to(cursor, {
     x: e.clientX,
     y: e.clientY,
-    duration: 0.2,
+    duration: 0.18,
     ease: "power2.out",
     opacity: 1,
   });
 
-  createRipple(e.clientX, e.clientY);
+  createSmokePuff(e.clientX, e.clientY);
 });
 
 // hide cursor when leaving window
@@ -23,22 +23,28 @@ document.body.addEventListener("mouseleave", function () {
   });
 });
 
-function createRipple(x, y) {
-  var ripple = document.createElement("div");
-  ripple.classList.add("ripple");
-  rippleLayer.appendChild(ripple);
+function createSmokePuff(x, y) {
+  var puff = document.createElement("div");
+  puff.classList.add("smoke-puff");
+  smokeLayer.appendChild(puff);
 
-  ripple.style.left = x + "px";
-  ripple.style.top = y + "px";
+  puff.style.left = x + "px";
+  puff.style.top = y + "px";
 
-  // animate ripple (like water expanding & fading)
-  gsap.to(ripple, {
-    scale: 4, // how big the ring grows
+  // random horizontal drift
+  var driftX = (Math.random() - 0.5) * 80; // -40 to 40 px
+  // random upward distance
+  var driftY = -(40 + Math.random() * 60); // -40 to -100
+
+  gsap.to(puff, {
+    x: driftX,
+    y: driftY,
+    scale: 1.8 + Math.random(), // get bigger as it rises
     opacity: 0,
-    duration: 0.7,
+    duration: 0.9 + Math.random() * 0.4,
     ease: "power2.out",
     onComplete: function () {
-      ripple.remove();
+      puff.remove();
     },
   });
 }
