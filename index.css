@@ -8,28 +8,14 @@ body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
+  background-color: #111;
 }
 
-#page1 {
-  height: 100%;
+#string {
+  height: 200px;
   width: 100%;
-  background-color: lightblue;
+  background-color: #111;
 }
 
-#page2 {
-  height: 100%;
-  width: 100%;
-  background-color: rgb(10, 116, 151);
-  padding: 20vw 0;
-}
-
-#page3 {
-  height: 100%;
-  width: 100%;
-  background-color: rgb(12, 22, 26);
-}
-
-#page2 h1 {
-  font-size: 40vw;
-  text-transform: uppercase;
+svg {
 }
