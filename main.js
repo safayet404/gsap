@@ -1,30 +1,20 @@
-var path = `M 10 100 Q 500 100 990 100`;
+var main = document.querySelector("#main");
+var cursor = document.querySelector("#cursor");
 
-var finalPath = `M 10 100 Q 500 100 990 100`;
-
-var string = document.querySelector("#string");
-
-string.addEventListener("mouseenter", function () {
-  console.log("entered");
-});
-
-string.addEventListener("mousemove", function (dets) {
-  path = `M 10 100 Q ${dets.x} ${dets.y} 990 100`;
-  gsap.to("svg path", {
-    attr: {
-      d: path,
-    },
-    duration: 0.2,
-    ease: "power3.out",
+main.addEventListener("mousemove", function (events) {
+  gsap.to(cursor, {
+    x: events.clientX,
+    y: events.clientY,
+    duration: 0.3,
+    ease: "power2.out",
+    opacity: 1,
   });
 });
 
-string.addEventListener("mouseleave", function () {
-  gsap.to("svg path", {
-    attr: {
-      d: finalPath,
-    },
-    duration: 1.5,
-    ease: "elastic.out(1,0.2)",
+// when mouse leaves the *page*
+document.body.addEventListener("mouseleave", function () {
+  gsap.to(cursor, {
+    opacity: 0,
+    duration: 0.3,
   });
 });
